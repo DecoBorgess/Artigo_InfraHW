@@ -1,0 +1,22 @@
+Benchmark de throughput de memória (mbw)
+Processador: Intel Core i5-13420H (Raptor Lake)
+Repetições por tamanho: 3
+==========================================================
+
+--- Array de 16 MiB ---
+Long   array size: 2097152 (16 MiB)
+AVG   Method: MEMCPY  Elapsed: 0.00177  MiB: 16  Copy: 10684.243 MiB/s
+
+--- Array de 128 MiB ---
+Long   array size: 16777216 (128 MiB)
+AVG   Method: MEMCPY  Elapsed: 0.01454  MiB: 128  Copy: 8797.112 MiB/s
+
+--- Array de 1024 MiB ---
+Long   array size: 134217728 (1024 MiB)
+AVG   Method: MEMCPY  Elapsed: 0.11389  MiB: 1024  Copy: 8991.047 MiB/s
+
+==========================================================
+Resumo (linhas AVG MEMCPY):
+AVG   Method: MEMCPY  Elapsed: 0.00177  MiB: 16  Copy: 10684.243 MiB/s
+AVG   Method: MEMCPY  Elapsed: 0.01454  MiB: 128  Copy: 8797.112 MiB/s
+AVG   Method: MEMCPY  Elapsed: 0.11389  MiB: 1024  Copy: 8991.047 MiB/s

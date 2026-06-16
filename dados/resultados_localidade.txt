@@ -1,0 +1,37 @@
+======================================================================
+TESTE DE LOCALIDADE DE CACHE — Localidade Espacial na prática
+======================================================================
+Matriz: 6000x6000 elementos float64
+Tamanho em memória: 274.7 MB
+Total de operações por loop: 36,000,000
+======================================================================
+
+ Para o efeito ser visível, este script usa loops Python puros.
+  Com NumPy vetorizado, o compilador resolveria isso pra nós.
+  Reduza N se a sua máquina demorar muito (sugestão: 2000).
+
+Criando matriz...
+Aquecimento...
+
+[A] Percorrendo linha por linha (sequencial)...
+    Tempo: 2.96s
+
+[B] Percorrendo coluna por coluna (com saltos na memória)...
+    Tempo: 3.27s
+
+======================================================================
+RESULTADO
+======================================================================
+Loop A (sequencial):       2.96s
+Loop B (com saltos):       3.27s
+Razão B/A:                 1.11x  ← acesso ruim é 1.1x mais lento
+
+INTERPRETAÇÃO:
+  • A matriz é armazenada em memória 'row-major' (linhas contíguas).
+  • Loop A acessa endereços vizinhos → o cache traz os próximos
+    elementos de graça (cache hit).
+  • Loop B salta de linha em linha → o cache é invalidado a cada
+    acesso (cache miss).
+  • Mesma quantidade de cálculo, MUITA diferença de tempo.
+  • Conclusão: o gargalo não é a CPU — é trazer dados até ela.
+======================================================================
